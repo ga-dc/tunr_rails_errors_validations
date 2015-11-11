@@ -1,5 +1,7 @@
 # Tunr Rails
 
+This repo picks up where [the sessions and auth Tunr](https://github.com/ga-dc/tunr_rails_sessions_auth/tree/devise) left off.
+
 Each of the following repos and links share the same commit history with this repo.
 
 ## Models and Migrations
