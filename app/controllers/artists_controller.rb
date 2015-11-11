@@ -11,8 +11,13 @@ class ArtistsController < ApplicationController
 
   # create
   def create
-    @artist = Artist.create!(artist_params)
-    redirect_to (artist_path(@artist))
+    @artist = Artist.new(artist_params)
+    if @artist.save
+      flash[:notice] = "#{@artist.name} was successfully created."
+      redirect_to @artist
+    else
+      render :new
+    end
   end
 
   #show
@@ -29,8 +34,12 @@ class ArtistsController < ApplicationController
   # update
   def update
     @artist = Artist.find(params[:id])
-    @artist.update(artist_params)
-    redirect_to artist_path(@artist)
+    if @artist.update(artist_params)
+      flash[:notice] = "#{@artist.name} was successfully updated."
+      redirect_to @artist
+    else
+      render :edit
+    end
   end
 
   # destroy
@@ -40,7 +49,7 @@ class ArtistsController < ApplicationController
     redirect_to artists_path
   end
 
-  private 
+  private
   def artist_params
     params.require(:artist).permit(:name, :photo_url, :nationality)
   end

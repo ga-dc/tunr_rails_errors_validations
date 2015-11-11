@@ -92,4 +92,9 @@
  span.nationality {
    font-size: .5em;
  }
->>>>>>> Stashed changes
+ .alert{
+   color:red;
+ }
+ .notice{
+   color:blue;
+ }
